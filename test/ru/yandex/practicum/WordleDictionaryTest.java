@@ -2,6 +2,7 @@ package ru.yandex.practicum;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import ru.yandex.practicum.exceptions.*;
 
 import java.io.PrintWriter;
 import java.util.List;
@@ -65,8 +66,8 @@ class WordleDictionaryTest {
 
     @Test
     void shouldThrowExceptionWhenDictionaryBecomesEmptyAfterFiltering() {
-        IllegalStateException exception = assertThrows(
-                IllegalStateException.class,
+        EmptyDictionaryException exception = assertThrows(
+                EmptyDictionaryException.class,
                 () -> new WordleDictionary(List.of("дом", "123", "abc"), log)
         );
 
