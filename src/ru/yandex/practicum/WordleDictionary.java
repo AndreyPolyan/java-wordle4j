@@ -1,5 +1,7 @@
 package ru.yandex.practicum;
 
+import ru.yandex.practicum.exceptions.*;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -7,7 +9,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class WordleDictionary {
-    private static final int WORD_LENGTH = 5;
+    private static final int WORD_LENGTH = WordleConstants.WORD_LENGTH;
 
     private final List<String> words;
     private final Set<String> wordsSet;
@@ -31,7 +33,7 @@ public class WordleDictionary {
             String message = "Игровой словарь пуст после фильтрации. Исходных слов: " + rawWords.size();
 
             log.error(message);
-            throw new IllegalStateException(message);
+            throw new EmptyDictionaryException(message);
         }
         log.info("Словарь подготовлен. Подходящих слов: " + words.size());
     }

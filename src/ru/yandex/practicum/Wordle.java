@@ -22,7 +22,7 @@ public class Wordle {
             WordleGame game = new WordleGame(dictionary, log);
 
             System.out.println("Игра Wordle началась!");
-            System.out.println("Нужно угадать существительное из 5 букв.");
+            System.out.println("Нужно угадать существительное из " + WordleConstants.WORD_LENGTH + " букв.");
             System.out.println("У вас есть 6 попыток.");
 
             while (!game.isFinished()) {
@@ -53,7 +53,7 @@ public class Wordle {
                         System.out.println("Вы угадали слово!");
                     }
                 } catch (InvalidWordLengthException e) {
-                    System.out.println("Ошибка: слово должно состоять из 5 букв.");
+                    System.out.println("Ошибка: слово должно состоять из " + WordleConstants.WORD_LENGTH + " букв.");
                 } catch (InvalidWordFormatException e) {
                     System.out.println("Ошибка: используйте только русские буквы.");
                 } catch (WordNotFoundInDictionaryException e) {

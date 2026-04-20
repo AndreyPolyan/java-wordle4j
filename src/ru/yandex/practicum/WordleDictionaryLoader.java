@@ -1,5 +1,7 @@
 package ru.yandex.practicum;
 
+import ru.yandex.practicum.exceptions.*;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -31,8 +33,10 @@ public class WordleDictionaryLoader {
             return new WordleDictionary(words, log);
 
         } catch (IOException e) {
-            log.error("Ошибка при загрузке словаря: " + e.getMessage());
-            throw e;
+            String message = "Ошибка при загрузке словаря";
+
+            log.error(message + ": " + e.getMessage());
+            throw new DictionaryLoadingException(message, e);
         }
     }
 }
